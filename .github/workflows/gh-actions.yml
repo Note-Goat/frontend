@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: danielmunro/note-goat-tests
+          repository: Note-Goat/integration-tests
           ref: main
           ssh-key: ${{ secrets.SSH_KEY }}
       - run: yarn global add jest
