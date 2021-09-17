@@ -1,0 +1,207 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 14pt;
+}
+
+h1 {
+  font-size: 28pt;
+  color: ghostwhite;
+}
+
+h1.header {
+  padding: 12px 20px;
+}
+
+div.editor h1 {
+  color: #0e1013;
+}
+
+h2 {
+  padding: 8px 0;
+}
+
+p {
+  padding: 10px 0;
+}
+
+p.warning {
+  color: red;
+}
+
+.App {
+  position: relative;
+  min-height: 100vh;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background: rgb(40,44,52);
+  background: linear-gradient(180deg, rgba(40,44,52,1) 11%, rgba(14,16,19,1) 90%, rgba(40,44,51,1) 100%);
+  height: 75px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: start;
+}
+
+.logo {
+  height: 75px;
+  pointer-events: none;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+div.container {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10vh;
+}
+
+div.right-column-container {
+  padding: 10px 0;
+  width: 100%;
+}
+
+div.left-column {
+  width: 15%;
+  margin: 0;
+  padding: 10px 0;
+}
+
+div.right-column {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+}
+
+.text-field {
+  margin: 10px 0;
+}
+
+ul.nav {
+  list-style: none;
+  text-align: left;
+}
+
+ul.nav li {
+  font-size: 16pt;
+  padding: 0 0 10px 10px;
+}
+
+ul.nav li a {
+  text-decoration: none;
+  color: #282c34;
+}
+
+ul.nav li a:hover {
+  text-decoration: none;
+  color: #EE6C4D;
+}
+
+div.container input, div.container textarea {
+  width: 800px;
+  padding: 20px;
+}
+
+div.right-column button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16pt;
+}
+
+div.editor {
+  background-color: beige;
+  min-height: 500px;
+  width: 90%;
+  padding: 20px;
+  border-radius: 4px;
+  font-size: 15pt;
+}
+
+div.splash {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 300px;
+  flex-wrap: wrap;
+  background: url("./assets/splash.png") rgb(240, 195, 210) no-repeat left top;
+}
+
+div.row {
+  padding: 10px 0;
+  font-size: 18pt;
+  border-bottom: 1px solid lightslategray;
+  width: 98%;
+}
+
+div.splash-item {
+  width: 240px;
+  height: 200px;
+  padding: 20px;
+}
+
+div.splash-item p {
+  font-size: 16pt;
+}
+
+div .created {
+  padding-top: 10px;
+  color: lightslategray;
+}
+
+a:link, a:visited {
+  color: #282c34;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #EE6C4D;
+}
+
+div.account {
+  flex-direction: row;
+  line-height: 2;
+}
+
+div.footer-container {
+  height: 10vh;
+  width: 100%;
+  background-color: #282c34;
+  position: absolute;
+  bottom: 0;
+  flex: 1;
+}
+
+div.footer-controls {
+  padding-top: 20px;
+}
+
+div.footer-controls a {
+  color: ghostwhite;
+  padding-left: 20px;
+}
+
+ul.privacy-list {
+  line-height: 2;
+  padding: 20px;
+}
