@@ -1,0 +1,227 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container component snapshot 1`] = `
+<div
+  className="App"
+>
+  <div>
+    <header
+      className="App-header"
+    >
+      <img
+        className="logo"
+        src="/goat-original.png"
+      />
+      <h1
+        className="header"
+      />
+    </header>
+  </div>
+  <div
+    className="container"
+  >
+    <div
+      className="left-column"
+    >
+      <nav>
+        <ul
+          className="nav"
+        >
+          <li>
+            <a
+              href="/"
+              onClick={[Function]}
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="/login"
+              onClick={[Function]}
+            >
+              Login
+            </a>
+          </li>
+          <li>
+            <a
+              href="/signup"
+              onClick={[Function]}
+            >
+              Signup
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div
+      className="right-column"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+  <div
+    className="footer-container"
+  >
+    <div
+      className="footer-controls"
+    >
+      <a
+        href="/privacy"
+        onClick={[Function]}
+      >
+        Privacy
+      </a>
+      <a
+        href="/contact"
+        onClick={[Function]}
+      >
+        Contact
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Container with title component snapshot 1`] = `
+<div
+  className="App"
+>
+  <div>
+    <header
+      className="App-header"
+    >
+      <img
+        className="logo"
+        src="/goat-original.png"
+      />
+      <h1
+        className="header"
+      >
+        This is a title
+      </h1>
+    </header>
+  </div>
+  <div
+    className="container"
+  >
+    <div
+      className="left-column"
+    >
+      <nav>
+        <ul
+          className="nav"
+        >
+          <li>
+            <a
+              href="/"
+              onClick={[Function]}
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="/login"
+              onClick={[Function]}
+            >
+              Login
+            </a>
+          </li>
+          <li>
+            <a
+              href="/signup"
+              onClick={[Function]}
+            >
+              Signup
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div
+      className="right-column"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+  <div
+    className="footer-container"
+  >
+    <div
+      className="footer-controls"
+    >
+      <a
+        href="/privacy"
+        onClick={[Function]}
+      >
+        Privacy
+      </a>
+      <a
+        href="/contact"
+        onClick={[Function]}
+      >
+        Contact
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Container without navigation component snapshot 1`] = `
+<div
+  className="App"
+>
+  <div>
+    <header
+      className="App-header"
+    >
+      <img
+        className="logo"
+        src="/goat-original.png"
+      />
+      <h1
+        className="header"
+      />
+    </header>
+  </div>
+  <div
+    className="container"
+  >
+    <div
+      className="right-column"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+  <div
+    className="footer-container"
+  >
+    <div
+      className="footer-controls"
+    >
+      <a
+        href="/privacy"
+        onClick={[Function]}
+      >
+        Privacy
+      </a>
+      <a
+        href="/contact"
+        onClick={[Function]}
+      >
+        Contact
+      </a>
+    </div>
+  </div>
+</div>
+`;

@@ -7,7 +7,7 @@ import {colors} from "./constants";
 import {
   BrowserRouter as Router,
   Route,
-  Switch, useHistory, useLocation,
+  Switch,
   useRouteMatch
 } from "react-router-dom";
 import NotebookListScreen from "./screen/NotebookListScreen";

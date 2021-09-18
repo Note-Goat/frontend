@@ -12,7 +12,7 @@ export default function Container({ showNavigation, title, children }) {
     <div className="App">
       <Header title={title} />
       <div className="container">
-        {showNavigation || showNavigation === undefined && (
+        {(showNavigation || showNavigation === undefined) && (
           <div className="left-column">
             { loggedIn ? <AuthedNav /> : <UnAuthedNav /> }
           </div>

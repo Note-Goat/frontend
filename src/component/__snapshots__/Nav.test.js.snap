@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav component snapshot 1`] = `
+<nav>
+  <ul
+    className="nav"
+  >
+    <li>
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        Home
+      </a>
+    </li>
+    <li>
+      <a
+        href="/notebook"
+        onClick={[Function]}
+      >
+        My Notebooks
+      </a>
+    </li>
+    <li>
+      <a
+        href="/new-notebook"
+        onClick={[Function]}
+      >
+        New Notebook
+      </a>
+    </li>
+    <li>
+      <a
+        href="/account"
+        onClick={[Function]}
+      >
+        My Account
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

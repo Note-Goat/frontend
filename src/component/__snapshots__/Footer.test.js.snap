@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component snapshot 1`] = `
+<div
+  className="footer-container"
+>
+  <div
+    className="footer-controls"
+  >
+    <a
+      href="/privacy"
+      onClick={[Function]}
+    >
+      Privacy
+    </a>
+    <a
+      href="/contact"
+      onClick={[Function]}
+    >
+      Contact
+    </a>
+  </div>
+</div>
+`;
