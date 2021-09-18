@@ -44,5 +44,17 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://api-dev.notegoatapp.com"
+  "proxy": "https://api-dev.notegoatapp.com",
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!crypto-random-string)"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(scss|sass|css)$": "identity-obj-proxy"
+    }
+  },
+  "devDependencies": {
+    "identity-obj-proxy": "^3.0.0"
+  }
 }
