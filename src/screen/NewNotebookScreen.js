@@ -6,13 +6,16 @@ import Button from "../component/Button";
 import TextInput from "../component/TextInput";
 import Context from "../Context";
 import {xhrPost} from "../util/xhr";
+import useAuthHook from "../hook/useAuthHook";
 
 export default function NewNotebookScreen() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [nameIsEmptyError, setNameIsEmptyError] = useState(false);
-  const { notebooks, setNotebooks, accessToken } = useContext(Context);
+  const { notebooks, setNotebooks, accessToken, appLoaded, loggedIn } = useContext(Context);
   const history = useHistory();
+
+  useAuthHook(appLoaded, loggedIn);
 
   const onClick = async () => {
     if (!name) {

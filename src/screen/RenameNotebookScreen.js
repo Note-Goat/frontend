@@ -6,12 +6,15 @@ import Context from "../Context";
 import TextInput from "../component/TextInput";
 import Button from "../component/Button";
 import {xhrPut} from "../util/xhr";
+import useAuthHook from "../hook/useAuthHook";
 
 export default function RenameNotebookScreen() {
   const { notebookUuid } = useParams();
   const history = useHistory();
-  const { notebooks, accessToken } = useContext(Context);
+  const { notebooks, accessToken, appLoaded, loggedIn } = useContext(Context);
   const [notebookName, setNotebookName] = useState("");
+
+  useAuthHook(appLoaded, loggedIn);
 
   useEffect(() => {
     (async function () {

@@ -48,21 +48,23 @@ function App() {
   const [notes, setNotes] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
   const [accessToken, setAccessToken] = useState(localStorage.getItem("access_token"));
+  const [appLoaded, setAppLoaded] = useState(false);
 
   useEffect(() => {
     (async function() {
       if (accessToken) {
         try {
           const sessionData = await xhrGet("session", accessToken);
-          setLoggedIn(sessionData['loggedIn']);
+          setLoggedIn(sessionData['loggedIn'] ?? false);
           if (sessionData['loggedIn']) {
             setNotebooks(await xhrGet("notebook", accessToken));
           }
         } catch (e) {
         }
       }
+      setAppLoaded(true);
     })();
-  }, []);
+  }, [accessToken]);
 
   const appContext = {
     notebooks,
@@ -73,6 +75,7 @@ function App() {
     setLoggedIn,
     accessToken,
     setAccessToken,
+    appLoaded,
   };
 
   return (
