@@ -137,7 +137,7 @@ export default function NoteScreen() {
   };
 
   const onClickDelete = async () => {
-    const response = await xhrDelete(`note/${noteUuid}`);
+    const response = await xhrDelete(`note/${noteUuid}`, accessToken);
     if (response.status === 200) {
       const updatedNotes = { ...notes };
       updatedNotes[notebookUuid] = updatedNotes[notebookUuid].filter((note) => note.uuid !== noteUuid);
