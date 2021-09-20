@@ -1,12 +1,11 @@
 import Header from "./Header";
-import {useContext} from "react";
-import Context from "../Context";
 import AuthedNav from "../app/nav/AuthedNav";
 import UnAuthedNav from "../app/nav/UnAuthedNav";
 import Footer from "./Footer";
+import {useAuth} from "../hook/auth";
 
 export default function Container({ showNavigation, title, children }) {
-  const { loggedIn } = useContext(Context);
+  const { loggedIn } = useAuth();
 
   return (
     <div className="App">

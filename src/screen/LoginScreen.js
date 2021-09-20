@@ -6,13 +6,16 @@ import Button from "../component/Button";
 import {xhrGet, xhrPost} from "../util/xhr";
 import Context from "../Context";
 import {useHistory} from "react-router-dom";
+import {useAuth} from "../hook/auth";
 
 export default function LoginScreen() {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isError, setIsError] = useState(false);
-  const { setLoggedIn, setNotebooks, accessToken, setAccessToken } = useContext(Context);
+  const { setNotebooks } = useContext(Context);
+
+  const { setLoggedIn, accessToken, setAccessToken } = useAuth();
 
   const submitLogin = async () => {
     setIsError(false);

@@ -4,13 +4,13 @@ import {Link, useHistory} from "react-router-dom";
 import Container from "../component/Container";
 import Context from "../Context";
 import Button from "../component/Button";
-import useAuthHook from "../hook/useAuthHook";
+import {useAuth} from "../hook/auth";
 
 export default function NotebookListScreen() {
-  const { notebooks, appLoaded, loggedIn } = useContext(Context);
+  const { notebooks } = useContext(Context);
   const history = useHistory();
 
-  useAuthHook(appLoaded, loggedIn);
+  useAuth();
 
   if (!notebooks) {
     return <div />

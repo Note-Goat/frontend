@@ -1,18 +1,16 @@
 import Container from "../component/Container";
-import {useContext, useState} from "react";
+import {useState} from "react";
 import {getKey, setKey as setCryptographicKey} from "../util/crypto";
 import TextInput from "../component/TextInput";
 import Button from "../component/Button";
-import Context from "../Context";
-import useAuthHook from "../hook/useAuthHook";
+import {useAuth} from "../hook/auth";
 
 export default function KeyScreen() {
   const [key, setKey] = useState(getKey());
   const [isReadOnly, setIsReadOnly] = useState(true);
   const [isCopied, setIsCopied] = useState(false);
-  const { appLoaded, loggedIn } = useContext(Context);
 
-  useAuthHook(appLoaded, loggedIn);
+  useAuth();
 
   const onClickCopy = async () => {
     await navigator.clipboard.writeText(key);

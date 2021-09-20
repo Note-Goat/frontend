@@ -1,10 +1,10 @@
 import renderer from 'react-test-renderer';
 import Nav from "./Nav";
-import {BrowserRouter} from "react-router-dom";
+import AppContainer from "../test/AppContainer";
 
 test('Nav component snapshot', () => {
   const tree = renderer
-    .create(<BrowserRouter><Nav /></BrowserRouter>)
+    .create(<AppContainer><Nav /></AppContainer>)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

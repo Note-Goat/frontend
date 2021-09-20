@@ -11,7 +11,7 @@ import Button from "../component/Button";
 import EditorState from "draft-js/lib/EditorState";
 import {convertToRaw} from "draft-js";
 import {getNoteName} from "../util/notebook";
-import useAuthHook from "../hook/useAuthHook";
+import {useAuth} from "../hook/auth";
 
 export default function NotebookScreen() {
   const { notebookUuid } = useParams();
@@ -23,10 +23,9 @@ export default function NotebookScreen() {
     setNotebooks,
     notes,
     setNotes,
-    accessToken,
-    appLoaded,
-    loggedIn,
   } = useContext(Context);
+
+  const { accessToken } = useAuth();
 
   const loadNotebook = async () => {
     const data = await xhrGet(`notebook/${notebookUuid}`, accessToken);
@@ -35,7 +34,7 @@ export default function NotebookScreen() {
     await reloadNotes();
   };
 
-  useAuthHook(appLoaded, loggedIn);
+  useAuth();
 
   useEffect(() => {
     (async function() {

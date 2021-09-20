@@ -23,7 +23,7 @@ import {aesGcmDecrypt, aesGcmEncrypt} from "../util/crypto";
 import 'draft-js/dist/Draft.css';
 import Button from "../component/Button";
 import {getNoteName} from "../util/notebook";
-import useAuthHook from "../hook/useAuthHook";
+import {useAuth} from "../hook/auth";
 
 let saveTimeout = null;
 const listPlugin = createAutoListPlugin();
@@ -38,11 +38,11 @@ export default function NoteScreen() {
   const [isReady, setIsReady] = useState(false);
   const [editorState, setEditorState] = useState();
   const [decryptionError, setDecryptionError] = useState(false);
-  const { notes, setNotes, accessToken, appLoaded, loggedIn } = useContext(Context);
+  const { notes, setNotes } = useContext(Context);
   const editorRef = createRef();
   const history = useHistory();
 
-  useAuthHook(appLoaded, loggedIn);
+  const { accessToken } = useAuth();
 
   const getEditorExport = (editorState) => JSON.stringify(convertToRaw(editorState.getCurrentContent()));
   const getEditorImport = (raw) => convertFromRaw(JSON.parse(raw))

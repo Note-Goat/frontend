@@ -1,13 +1,11 @@
 import Container from "../component/Container";
 import {Link} from "react-router-dom";
-import {useContext} from "react";
-import Context from "../Context";
-import useAuthHook from "../hook/useAuthHook";
+import {useAuth} from "../hook/auth";
 
 export default function AccountScreen() {
-  const { appLoaded, loggedIn } = useContext(Context);
 
-  useAuthHook(appLoaded, loggedIn);
+  useAuth();
+
   return (
     <Container title="My Account">
       <div className="account">

@@ -1,10 +1,10 @@
 import renderer from 'react-test-renderer';
 import Footer from "./Footer";
-import {BrowserRouter} from "react-router-dom";
+import AppContainer from "../test/AppContainer";
 
 test('Footer component snapshot', () => {
   const tree = renderer
-    .create(<BrowserRouter><Footer /></BrowserRouter>)
+    .create(<AppContainer><Footer /></AppContainer>)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

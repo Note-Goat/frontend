@@ -1,7 +1,6 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {createTheme, MuiThemeProvider} from '@material-ui/core/styles';
 import './App.css';
-import {xhrGet} from "./util/xhr";
 import Context from "./Context";
 import {colors} from "./constants";
 import {
@@ -15,7 +14,6 @@ import NewNotebookScreen from "./screen/NewNotebookScreen";
 import LogoutScreen from "./screen/LogoutScreen";
 import PrivacyScreen from "./screen/PrivacyScreen";
 import ContactScreen from "./screen/ContactScreen";
-import HomeScreen from "./screen/HomeScreen";
 import RenameNotebookScreen from "./screen/RenameNotebookScreen";
 import NotebookScreen from "./screen/NotebookScreen";
 import NoteScreen from "./screen/NoteScreen";
@@ -25,95 +23,59 @@ import AccountScreen from "./screen/AccountScreen";
 import SplashScreen from "./screen/SplashScreen";
 import LoginScreen from "./screen/LoginScreen";
 import SignupScreen from "./screen/SignupScreen";
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      light: '#f18970',
-      main: colors.burntSienna,
-      dark: '#a64b35',
-      contrastText: '#eee',
-    },
-    secondary: {
-      light: '#535b67',
-      main: colors.gunMetal,
-      dark: '#111',
-      contrastText: '#eee',
-    },
-  },
-});
+import {AuthProvider} from "./hook/auth";
+import theme from "./util/theme";
 
 function App() {
   const [notebooks, setNotebooks] = useState([]);
   const [notes, setNotes] = useState({});
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [accessToken, setAccessToken] = useState(localStorage.getItem("access_token"));
-  const [appLoaded, setAppLoaded] = useState(false);
-
-  useEffect(() => {
-    (async function() {
-      if (accessToken) {
-        try {
-          const sessionData = await xhrGet("session", accessToken);
-          setLoggedIn(sessionData['loggedIn'] ?? false);
-          if (sessionData['loggedIn']) {
-            setNotebooks(await xhrGet("notebook", accessToken));
-          }
-        } catch (e) {
-        }
-      }
-      setAppLoaded(true);
-    })();
-  }, [accessToken]);
+  const accessToken = localStorage.getItem("access_token");
 
   const appContext = {
     notebooks,
     setNotebooks,
     notes,
     setNotes,
-    loggedIn,
-    setLoggedIn,
-    accessToken,
-    setAccessToken,
-    appLoaded,
   };
 
   return (
     <Context.Provider value={appContext}>
       <MuiThemeProvider theme={theme}>
         <Router>
-          <Switch>
-            <Route path="/notebook/:notebookUuid">
-              <Notebook />
-            </Route>
-            <Route path="/notebook">
-              <NotebookListScreen />
-            </Route>
-            <Route path="/new-notebook">
-              <NewNotebookScreen />
-            </Route>
-            <Route path="/account">
-              <Account />
-            </Route>
-            <Route path="/logout">
-              <LogoutScreen />
-            </Route>
-            <Route path="/privacy">
-              <PrivacyScreen />
-            </Route>
-            <Route path="/contact">
-              <ContactScreen />
-            </Route>
-            <Route path="/login">
-              <LoginScreen />
-            </Route>
-            <Route path="/signup">
-              <SignupScreen />
-            </Route>
-            <Route path="/">
-              { loggedIn ? <HomeScreen /> : <SplashScreen /> }
-            </Route>
-          </Switch>
+          <AuthProvider providedAccessToken={accessToken}>
+            <Switch>
+              <Route path="/notebook/:notebookUuid">
+                <Notebook />
+              </Route>
+              <Route path="/notebook">
+                <NotebookListScreen />
+              </Route>
+              <Route path="/new-notebook">
+                <NewNotebookScreen />
+              </Route>
+              <Route path="/account">
+                <Account />
+              </Route>
+              <Route path="/logout">
+                <LogoutScreen />
+              </Route>
+              <Route path="/privacy">
+                <PrivacyScreen />
+              </Route>
+              <Route path="/contact">
+                <ContactScreen />
+              </Route>
+              <Route path="/login">
+                <LoginScreen />
+              </Route>
+              <Route path="/signup">
+                <SignupScreen />
+              </Route>
+              <Route path="/">
+                <SplashScreen />
+              </Route>
+            </Switch>
+          </AuthProvider>
         </Router>
       </MuiThemeProvider>
     </Context.Provider>
