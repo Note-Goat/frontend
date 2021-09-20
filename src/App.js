@@ -1,8 +1,6 @@
 import {useState} from "react";
-import {createTheme, MuiThemeProvider} from '@material-ui/core/styles';
 import './App.css';
 import Context from "./Context";
-import {colors} from "./constants";
 import {
   BrowserRouter as Router,
   Route,
@@ -24,7 +22,7 @@ import SplashScreen from "./screen/SplashScreen";
 import LoginScreen from "./screen/LoginScreen";
 import SignupScreen from "./screen/SignupScreen";
 import {AuthProvider} from "./hook/auth";
-import theme from "./util/theme";
+import ThemeProvider from "./util/ThemeProvider";
 
 function App() {
   const [notebooks, setNotebooks] = useState([]);
@@ -40,7 +38,7 @@ function App() {
 
   return (
     <Context.Provider value={appContext}>
-      <MuiThemeProvider theme={theme}>
+      <ThemeProvider>
         <Router>
           <AuthProvider providedAccessToken={accessToken}>
             <Switch>
@@ -77,7 +75,7 @@ function App() {
             </Switch>
           </AuthProvider>
         </Router>
-      </MuiThemeProvider>
+      </ThemeProvider>
     </Context.Provider>
   );
 }

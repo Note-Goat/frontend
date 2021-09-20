@@ -1,7 +1,7 @@
-import {createTheme} from "@material-ui/core/styles";
+import {createTheme, MuiThemeProvider} from "@material-ui/core/styles";
 import {colors} from "../constants";
 
-export default createTheme({
+const theme = createTheme({
   palette: {
     primary: {
       light: '#f18970',
@@ -17,3 +17,11 @@ export default createTheme({
     },
   },
 });
+
+export default function ThemeProvider({children}) {
+  return (
+    <MuiThemeProvider theme={theme}>
+      {children}
+    </MuiThemeProvider>
+  );
+}
