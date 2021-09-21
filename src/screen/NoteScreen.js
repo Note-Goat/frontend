@@ -24,6 +24,7 @@ import 'draft-js/dist/Draft.css';
 import Button from "../component/Button";
 import {getNoteName} from "../util/notebook";
 import {useAuth} from "../hook/auth";
+import {useBeforeunload} from "react-beforeunload";
 
 let saveTimeout = null;
 const listPlugin = createAutoListPlugin();
@@ -61,7 +62,7 @@ export default function NoteScreen() {
 
   const onEditorStateChange = (newState) => {
     clearTimeout(saveTimeout);
-    saveTimeout = setTimeout(updateNote(newState), 3000);
+    saveTimeout = setTimeout(updateNote(newState), 1000);
     const currentContent = editorState.getCurrentContent();
     const firstBlockKey = currentContent.getBlockMap().first().getKey();
     const currentBlockKey = editorState.getSelection().getAnchorKey();
@@ -111,7 +112,6 @@ export default function NoteScreen() {
       setEditorState(EditorState.createWithContent(getEditorImport(note.message)));
       setIsReady(true);
     })();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -138,6 +138,12 @@ export default function NoteScreen() {
   const onClickBack = () => {
     history.goBack();
   };
+
+  useBeforeunload(async () => {
+    if (saveTimeout) {
+      await updateNote(editorState);
+    }
+  });
 
   const onClickDelete = async () => {
     const response = await xhrDelete(`note/${noteUuid}`, accessToken);
