@@ -1,23 +1,48 @@
-import {xhrDelete, xhrGet, xhrPost} from "../util/xhr";
+import {xhrDelete, xhrGet, xhrPost, xhrPut} from "../util/xhr";
 import {useContext, useEffect, useState} from "react";
 import DeleteIcon from '@material-ui/icons/Delete';
 import CreateIcon from '@material-ui/icons/Create';
 import NoteIcon from '@material-ui/icons/NoteAdd';
 import {Link, useHistory, useParams} from "react-router-dom";
+import {Box, Tab, Tabs, Typography} from "@material-ui/core";
+import EditorState from "draft-js/lib/EditorState";
+import {convertToRaw} from "draft-js";
 import Context from "../Context";
 import Container from "../component/Container";
 import {aesGcmDecrypt, aesGcmEncrypt} from "../util/crypto";
 import Button from "../component/Button";
-import EditorState from "draft-js/lib/EditorState";
-import {convertToRaw} from "draft-js";
 import {getNoteName} from "../util/notebook";
 import {useAuth} from "../hook/auth";
+import TextInput from "../component/TextInput";
+import SaveIcon from "@material-ui/icons/Save";
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
 
 export default function NotebookScreen() {
   const { notebookUuid } = useParams();
   const history = useHistory();
   const [notebookNotes, setNotebookNotes] = useState([]);
+  const [tab, setTab] = useState(0);
   const [notebook, setNotebook] = useState({ name: "" });
+  const [newNotebookName, setNewNotebookName] = useState("");
   const {
     notebooks,
     setNotebooks,
@@ -104,40 +129,69 @@ export default function NotebookScreen() {
     }
   };
 
-  const onClickRenameNotebook = () => {
-    history.push(`/notebook/${notebookUuid}/rename`);
+  const handleChange = (event, newValue) => {
+    setTab(newValue);
+  };
+
+  const onClickRename = async () => {
+    const response = await xhrPut(`notebook/${notebookUuid}`, {
+      name: newNotebookName,
+    }, accessToken);
+
+    if (response.status === 200) {
+      const notebook = notebooks.find((n) => n.uuid === notebookUuid);
+      notebook.name = newNotebookName;
+      history.push(`/notebook/${notebookUuid}`);
+    }
   };
 
   return (
     <Container title={`Notebook: ${notebook.name}`}>
-      <div style={{flexDirection: "row"}}>
-        <Button
-          icon={<NoteIcon />}
-          title="Start New Note"
-          onClick={onClickNewNote}
-          color="primary"
-        />
-        <Button
-          icon={<CreateIcon />}
-          title="Rename Notebook"
-          onClick={onClickRenameNotebook}
-          color="primary"
+      <div style={{flexDirection: "row", width: "100%"}}>
+        <Tabs value={tab} onChange={handleChange} aria-label="basic tabs example">
+          <Tab label="Notes" />
+          <Tab label="Rename Notebook" />
+          <Tab label="Archive" />
+        </Tabs>
+        <TabPanel value={tab} index={0}>
+          <Button
+            icon={<NoteIcon />}
+            title="Start New Note"
+            onClick={onClickNewNote}
+            color="primary"
           />
-        <Button
-          icon={<DeleteIcon />}
-          title="Archive Notebook"
-          onClick={onClickArchiveNotebook}
-          color="secondary"
-        />
+          {notebookNotes.map((note) => (
+            <div key={note.uuid} className="row">
+              <Link to={`/notebook/${notebookUuid}/note/${note.uuid}`}>
+                <p>{note.decryptionError ? note.message : getNoteName(note.message)}</p>
+                <p className="created">{new Date(note.created).toDateString()}</p>
+              </Link>
+            </div>
+          ))}
+        </TabPanel>
+        <TabPanel value={tab} index={1}>
+          <TextInput
+            label="Notebook Name"
+            value={newNotebookName}
+            onChange={(event) => setNewNotebookName(event.target.value)}
+          />
+          <Button
+            title="Rename Notebook"
+            onClick={onClickRename}
+            color="primary"
+            icon={<SaveIcon />}
+          />
+        </TabPanel>
+        <TabPanel value={tab} index={2}>
+          <p>Warning: this cannot be undone!</p>
+          <Button
+            icon={<DeleteIcon />}
+            title="Archive Notebook"
+            onClick={onClickArchiveNotebook}
+            color="secondary"
+          />
+        </TabPanel>
       </div>
-      {notebookNotes.map((note) => (
-        <div key={note.uuid} className="row">
-          <Link to={`/notebook/${notebookUuid}/note/${note.uuid}`}>
-            <p>{note.decryptionError ? note.message : getNoteName(note.message)}</p>
-            <p className="created">{new Date(note.created).toDateString()}</p>
-          </Link>
-        </div>
-      ))}
     </Container>
   );
 }
