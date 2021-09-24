@@ -6,11 +6,11 @@
 
 h1 {
   font-size: 28pt;
-  color: ghostwhite;
+  padding: 10px 0 20px;
 }
 
 h1.header {
-  padding: 0 10px;
+  float: left;
 }
 
 div.editor h1 {
@@ -29,9 +29,8 @@ p.warning {
   color: red;
 }
 
-.App {
-  position: relative;
-  min-height: 100vh;
+.MuiMenu-paper {
+  margin-top: 24px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -71,7 +70,8 @@ p.warning {
 div.container {
   display: flex;
   flex-direction: row;
-  padding-bottom: 10vh;
+  padding: 0 10px 10vh;
+  clear: both;
 }
 
 div.right-column-container {
@@ -123,9 +123,20 @@ div.container input, div.container textarea {
 }
 
 div.right-column button {
-  margin: 10px;
   padding: 10px 20px;
   font-size: 16pt;
+}
+
+div.header-button {
+  float: left;
+  padding: 12px 0 0 10px;
+}
+
+div.header {
+  height: 70px;
+  width: 100%;
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
 }
 
 div.editor {

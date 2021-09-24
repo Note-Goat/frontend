@@ -4,56 +4,54 @@ exports[`Container component snapshot 1`] = `
 <div
   className="App"
 >
-  <div>
-    <header
-      className="App-header"
+  <div
+    className="header"
+  >
+    <div
+      className="header-button"
     >
-      <img
-        className="logo"
-        src="/goat-original.png"
-      />
-      <h1
-        className="header"
-      />
-    </header>
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-text"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="MenuIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <h1
+      className="header"
+    />
   </div>
   <div
     className="container"
   >
-    <div
-      className="left-column"
-    >
-      <nav>
-        <ul
-          className="nav"
-        >
-          <li>
-            <a
-              href="/"
-              onClick={[Function]}
-            >
-              Home
-            </a>
-          </li>
-          <li>
-            <a
-              href="/login"
-              onClick={[Function]}
-            >
-              Login
-            </a>
-          </li>
-          <li>
-            <a
-              href="/signup"
-              onClick={[Function]}
-            >
-              Signup
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
     <div
       className="right-column"
       style={
@@ -90,58 +88,56 @@ exports[`Container with title component snapshot 1`] = `
 <div
   className="App"
 >
-  <div>
-    <header
-      className="App-header"
+  <div
+    className="header"
+  >
+    <div
+      className="header-button"
     >
-      <img
-        className="logo"
-        src="/goat-original.png"
-      />
-      <h1
-        className="header"
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-text"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
       >
-        This is a title
-      </h1>
-    </header>
+        <span
+          className="MuiButton-label"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="MenuIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <h1
+      className="header"
+    >
+      This is a title
+    </h1>
   </div>
   <div
     className="container"
   >
-    <div
-      className="left-column"
-    >
-      <nav>
-        <ul
-          className="nav"
-        >
-          <li>
-            <a
-              href="/"
-              onClick={[Function]}
-            >
-              Home
-            </a>
-          </li>
-          <li>
-            <a
-              href="/login"
-              onClick={[Function]}
-            >
-              Login
-            </a>
-          </li>
-          <li>
-            <a
-              href="/signup"
-              onClick={[Function]}
-            >
-              Signup
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
     <div
       className="right-column"
       style={
@@ -178,18 +174,53 @@ exports[`Container without navigation component snapshot 1`] = `
 <div
   className="App"
 >
-  <div>
-    <header
-      className="App-header"
+  <div
+    className="header"
+  >
+    <div
+      className="header-button"
     >
-      <img
-        className="logo"
-        src="/goat-original.png"
-      />
-      <h1
-        className="header"
-      />
-    </header>
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-text"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="MenuIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </svg>
+        </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+    <h1
+      className="header"
+    />
   </div>
   <div
     className="container"
