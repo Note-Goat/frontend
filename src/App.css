@@ -74,19 +74,8 @@ div.container {
   clear: both;
 }
 
-div.right-column-container {
-  padding: 10px 0;
+div.main {
   width: 100%;
-}
-
-div.left-column {
-  width: 15%;
-  margin: 0;
-  padding: 10px 0;
-}
-
-div.right-column {
-  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -133,10 +122,9 @@ div.header-button {
 }
 
 div.header {
-  height: 70px;
+  height: 74px;
   width: 100%;
   border-bottom: 1px solid black;
-  margin-bottom: 20px;
 }
 
 div.editor {
@@ -162,7 +150,7 @@ div.row {
   padding: 10px 0;
   font-size: 18pt;
   border-bottom: 1px solid lightslategray;
-  width: 98%;
+  width: 100%;
 }
 
 div.splash-item {

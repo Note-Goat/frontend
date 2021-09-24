@@ -61,6 +61,12 @@ export default function Header() {
         </ListItemIcon>
         <ListItemText primary="Notebooks" />
       </ListItem>
+      <ListItem button key="Add Notebook" onClick={() => history.push("/new-notebook")}>
+        <ListItemIcon>
+          <AddIcon />
+        </ListItemIcon>
+        <ListItemText primary="Add Notebook" />
+      </ListItem>
       <ListItem button key="Account" onClick={() => history.push("/account")}>
         <ListItemIcon>
           <AccountBoxIcon />

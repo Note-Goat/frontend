@@ -6,6 +6,11 @@ exports[`Container component snapshot 1`] = `
 >
   <div
     className="header"
+    style={
+      Object {
+        "marginBottom": 20,
+      }
+    }
   >
     <div
       className="header-button"
@@ -53,12 +58,7 @@ exports[`Container component snapshot 1`] = `
     className="container"
   >
     <div
-      className="right-column"
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
+      className="main"
     />
   </div>
   <div
@@ -90,6 +90,11 @@ exports[`Container with title component snapshot 1`] = `
 >
   <div
     className="header"
+    style={
+      Object {
+        "marginBottom": 20,
+      }
+    }
   >
     <div
       className="header-button"
@@ -139,12 +144,7 @@ exports[`Container with title component snapshot 1`] = `
     className="container"
   >
     <div
-      className="right-column"
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
+      className="main"
     />
   </div>
   <div
@@ -176,6 +176,11 @@ exports[`Container without navigation component snapshot 1`] = `
 >
   <div
     className="header"
+    style={
+      Object {
+        "marginBottom": 20,
+      }
+    }
   >
     <div
       className="header-button"
@@ -226,12 +231,7 @@ exports[`Container without navigation component snapshot 1`] = `
     className="container"
   >
     <div
-      className="right-column"
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
+      className="main"
     />
   </div>
   <div

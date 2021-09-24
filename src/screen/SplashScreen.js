@@ -14,33 +14,7 @@ export default function SplashScreen() {
   };
 
   return (
-    <Container showNavigation={false} title="Note Goat: Home" style={{flex: 1}}>
-      <div className="splash">
-        <div className="splash-item">
-          <div>
-            <LockIcon fontSize="large" />
-          </div>
-          <p>Serious about security</p>
-          <p>E2E encryption</p>
-          <p>Own your data</p>
-        </div>
-        <div className="splash-item">
-          <div>
-            <DevicesIcon fontSize="large" />
-          </div>
-          <p>A pretty good UX</p>
-          <p>Optimized for all devices</p>
-          <p>Fast and responsive</p>
-        </div>
-        <div className="splash-item">
-          <div>
-            <NotesIcon fontSize="large" />
-          </div>
-          <p>Helpful features</p>
-          <p>Keep lists in notes</p>
-          <p>Organize notes with tags</p>
-        </div>
-      </div>
+    <Container showSplash={true} title="Note Goat: Home" style={{flex: 1}}>
       <div style={{width: "100%", textAlign: "center"}}>
         <p>
           <Button

@@ -18,12 +18,6 @@ export default function NotebookListScreen() {
 
   return (
     <Container title="My Notebooks">
-      <Button
-        icon={<NotebookIcon />}
-        title="New Notebook"
-        onClick={() => history.push("/new-notebook")}
-        color="primary"
-      />
       { notebooks.map((notebook) => (
         <div key={notebook.uuid} className="row">
           <Link to={`/notebook/${notebook.uuid}`}>
