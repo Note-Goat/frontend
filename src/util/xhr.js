@@ -2,7 +2,9 @@ import {apiHost} from "../constants";
 
 export async function xhrGet(path, accessToken) {
   const options = accessToken ? {
-    credentials: "include",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
   } : null;
   return (await fetch(apiHost + "/" + path, options)).json();
 }
@@ -10,7 +12,9 @@ export async function xhrGet(path, accessToken) {
 export async function xhrPost(path, data, accessToken) {
   return fetch(apiHost + "/" + path, {
     method: "POST",
-    credentials: "include",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
     body: JSON.stringify({
       ...data,
     }),
@@ -20,7 +24,9 @@ export async function xhrPost(path, data, accessToken) {
 export async function xhrPut(path, data, accessToken) {
   return fetch(apiHost + "/" + path, {
     method: "PUT",
-    credentials: "include",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
     body: JSON.stringify({
       ...data,
     }),
@@ -30,6 +36,8 @@ export async function xhrPut(path, data, accessToken) {
 export async function xhrDelete(path, accessToken) {
   return fetch(apiHost + "/" + path, {
     method: "DELETE",
-    credentials: "include",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
   });
 }

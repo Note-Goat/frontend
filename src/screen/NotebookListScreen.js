@@ -1,14 +1,11 @@
 import {useContext} from "react";
-import NotebookIcon from '@material-ui/icons/Book';
-import {Link, useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
 import Container from "../component/Container";
 import Context from "../Context";
-import Button from "../component/Button";
 import {useAuth} from "../hook/auth";
 
 export default function NotebookListScreen() {
   const { notebooks } = useContext(Context);
-  const history = useHistory();
 
   useAuth();
 
