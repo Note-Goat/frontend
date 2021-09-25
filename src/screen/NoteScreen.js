@@ -163,7 +163,7 @@ export default function NoteScreen() {
 
   return (
     <Container title={`Note: ${decryptionError ? "error" : getNoteName(getEditorExport(editorState))}`}>
-      <div style={{flexDirection: "row"}}>
+      <div className="inner-container">
         <Button
           title="Back"
           icon={<ArrowBack />}
@@ -176,21 +176,21 @@ export default function NoteScreen() {
           onClick={onClickDelete}
           color="secondary"
         />
-      </div>
-      <div className="editor">
-        { decryptionError ? (
-          <div>
-            Error decrypting note!
-          </div>
-        ) : (
-          <Editor
-            editorState={editorState}
-            onChange={onEditorStateChange}
-            onTab={handleKeyBindings}
-            ref={editorRef}
-            plugins={plugins}
-          />
-        )}
+        <div className="editor">
+          { decryptionError ? (
+            <div>
+              Error decrypting note!
+            </div>
+          ) : (
+            <Editor
+              editorState={editorState}
+              onChange={onEditorStateChange}
+              onTab={handleKeyBindings}
+              ref={editorRef}
+              plugins={plugins}
+            />
+          )}
+        </div>
       </div>
     </Container>
   );

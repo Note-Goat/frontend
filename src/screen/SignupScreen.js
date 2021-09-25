@@ -33,26 +33,28 @@ export default function SignupScreen() {
 
   return (
     <Container title="Signup">
-      <TextInput
-        label="Username"
-        value={username}
-        onChange={(event) => setUsername(event.target.value)}
-        error={isError}
-      />
-      <TextInput
-        label="Password"
-        value={password}
-        onChange={(event) => setPassword(event.target.value)}
-        type="password"
-        error={isError}
-        helperText={isError ? "There was an error" : ""}
-      />
-      <Button
-        title="Signup"
-        onClick={submitSignup}
-        color="primary"
-        icon={<StarIcon />}
-      />
+      <div className="inner-container">
+        <TextInput
+          label="Username"
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
+          error={isError}
+        />
+        <TextInput
+          label="Password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+          type="password"
+          error={isError}
+          helperText={isError ? "There was an error" : ""}
+        />
+        <Button
+          title="Signup"
+          onClick={submitSignup}
+          color="primary"
+          icon={<StarIcon />}
+        />
+      </div>
     </Container>
   );
 }

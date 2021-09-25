@@ -8,7 +8,7 @@ export default function AccountScreen() {
 
   return (
     <Container title="My Account">
-      <div className="account">
+      <div className="inner-container">
         <p>
           <Link to="/account/key">View/Update Cryptographic Key</Link>
         </p>

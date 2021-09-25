@@ -42,7 +42,7 @@ export default function NewNotebookScreen() {
 
   return (
     <Container title="New Notebook">
-      <div className="new-notebook">
+      <div className="inner-container">
         <TextInput
           label="Notebook Name"
           onChange={(event) => setName(event.target.value)}

@@ -7,7 +7,7 @@ import NotesIcon from "@material-ui/icons/Notes";
 export default function Container({ showSplash, title, children }) {
   return (
     <div className="App">
-      <div className="header" style={{marginBottom: showSplash ? 0 : 20}}>
+      <div className="header">
         <Header title={title} />
         <h1 className="header">{title}</h1>
       </div>

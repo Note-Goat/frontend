@@ -15,14 +15,16 @@ export default function NotebookListScreen() {
 
   return (
     <Container title="My Notebooks">
-      { notebooks.map((notebook) => (
-        <div key={notebook.uuid} className="row">
-          <Link to={`/notebook/${notebook.uuid}`}>
-            <p>{notebook.name}</p>
-            <p className="created">{new Date(notebook.created).toDateString()}</p>
-          </Link>
-        </div>
-      ))}
+      <div className="inner-container">
+        { notebooks.map((notebook) => (
+          <div key={notebook.uuid} className="row">
+            <Link to={`/notebook/${notebook.uuid}`}>
+              <p>{notebook.name}</p>
+              <p className="created">{new Date(notebook.created).toDateString()}</p>
+            </Link>
+          </div>
+        ))}
+      </div>
     </Container>
   )
 }

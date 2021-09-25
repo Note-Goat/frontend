@@ -33,6 +33,10 @@ p.warning {
   margin-top: 24px;
 }
 
+.MuiBox-root {
+  padding: 10px !important;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -67,11 +71,21 @@ p.warning {
   }
 }
 
+div.header {
+  height: 74px;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
 div.container {
   display: flex;
   flex-direction: row;
-  padding: 0 10px 10vh;
+  padding: 0 0 10vh;
   clear: both;
+}
+
+div.container button {
+  margin: 0 5px;
 }
 
 div.main {
@@ -129,17 +143,12 @@ div.header-button {
   padding: 12px 0 0 10px;
 }
 
-div.header {
-  height: 74px;
-  width: 100%;
-  border-bottom: 1px solid black;
-}
-
 div.editor {
   background-color: beige;
   min-height: 500px;
   width: 90%;
-  padding: 20px;
+  margin-top: 10px;
+  padding: 0 10px;
   border-radius: 4px;
   font-size: 15pt;
 }
@@ -185,9 +194,11 @@ a:hover {
   color: #EE6C4D;
 }
 
-div.account {
+div.inner-container {
   flex-direction: row;
   line-height: 2;
+  padding: 10px;
+  width: 98%;
 }
 
 div.footer-controls {

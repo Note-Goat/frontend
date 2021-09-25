@@ -40,26 +40,28 @@ export default function LoginScreen() {
 
   return (
     <Container title="Login">
-      <TextInput
-        label="Username"
-        value={username}
-        onChange={(event) => setUsername(event.target.value)}
-        error={isError}
-      />
-      <TextInput
-        label="Password"
-        value={password}
-        onChange={(event) => setPassword(event.target.value)}
-        type="password"
-        error={isError}
-        helperText={isError ? "Username or password incorrect" : ""}
-      />
-      <Button
-        title="Login"
-        onClick={submitLogin}
-        color="primary"
-        icon={<VpnKeyIcon />}
-      />
+      <div className="inner-container">
+        <TextInput
+          label="Username"
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
+          error={isError}
+        />
+        <TextInput
+          label="Password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+          type="password"
+          error={isError}
+          helperText={isError ? "Username or password incorrect" : ""}
+        />
+        <Button
+          title="Login"
+          onClick={submitLogin}
+          color="primary"
+          icon={<VpnKeyIcon />}
+        />
+      </div>
     </Container>
   );
 }

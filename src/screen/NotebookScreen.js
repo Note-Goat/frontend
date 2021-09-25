@@ -4,7 +4,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import CreateIcon from '@material-ui/icons/Create';
 import NoteIcon from '@material-ui/icons/NoteAdd';
 import {Link, useHistory, useParams} from "react-router-dom";
-import {Box, Tab, Tabs, Typography} from "@material-ui/core";
+import {AppBar, Box, Tab, Tabs, Typography} from "@material-ui/core";
 import EditorState from "draft-js/lib/EditorState";
 import {convertToRaw} from "draft-js";
 import Context from "../Context";
@@ -148,12 +148,21 @@ export default function NotebookScreen() {
   return (
     <Container title={`Notebook: ${notebook.name}`}>
       <div style={{flexDirection: "row", width: "100%"}}>
-        <Tabs value={tab} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Notes" />
-          <Tab label="Rename Notebook" />
-          <Tab label="Archive" />
-        </Tabs>
-        <TabPanel value={tab} index={0}>
+        <AppBar position="static">
+          <Tabs
+            variant="fullWidth"
+            value={tab}
+            onChange={handleChange}
+            aria-label={`All notes for notebook: ${notebook.name}`}
+            indicatorColor="secondary"
+            textColor="inherit"
+          >
+            <Tab label="Notes" />
+            <Tab label="Rename Notebook" />
+            <Tab label="Archive" />
+          </Tabs>
+        </AppBar>
+        <TabPanel value={tab} index={0} padding={0}>
           <Button
             icon={<NoteIcon />}
             title="Start New Note"
