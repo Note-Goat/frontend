@@ -19,7 +19,6 @@ export default function SplashScreen() {
         <p>
           <Button
             variant="outlined"
-            color="secondary"
             size="large"
             style={{ margin: 40 }}
             onClick={onClickGetGoat}

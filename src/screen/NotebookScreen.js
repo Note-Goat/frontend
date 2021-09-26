@@ -172,9 +172,10 @@ export default function NotebookScreen() {
           {notebookNotes.map((note) => (
             <div key={note.uuid} className="row">
               <Link to={`/notebook/${notebookUuid}/note/${note.uuid}`}>
-                <p>{note.decryptionError ? note.message : getNoteName(note.message)}</p>
+                <p className="name">{note.decryptionError ? note.message : getNoteName(note.message)}</p>
                 <p className="created">{new Date(note.created).toDateString()}</p>
               </Link>
+              <div style={{clear: "both"}}></div>
             </div>
           ))}
         </TabPanel>

@@ -17,7 +17,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import {useAuth} from "../hook/auth";
 import {useHistory} from "react-router-dom";
 
-export default function Header() {
+export default function HeaderButton() {
   const [showMenu, setShowMenu] = useState(false);
   const { loggedIn } = useAuth();
   const history = useHistory();

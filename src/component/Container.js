@@ -1,4 +1,4 @@
-import Header from "./Header";
+import HeaderButton from "./HeaderButton";
 import Footer from "./Footer";
 import LockIcon from "@material-ui/icons/Lock";
 import DevicesIcon from "@material-ui/icons/Devices";
@@ -8,7 +8,7 @@ export default function Container({ showSplash, title, children }) {
   return (
     <div className="App">
       <div className="header">
-        <Header title={title} />
+        <HeaderButton title={title} />
         <h1 className="header">{title}</h1>
       </div>
       { showSplash && (
@@ -39,7 +39,7 @@ export default function Container({ showSplash, title, children }) {
           </div>
         </div>
       )}
-      <div className="container">
+      <div className="container" style={{ height: showSplash ? "43vh" : "inherit"}}>
         <div className="main">
           {children}
         </div>

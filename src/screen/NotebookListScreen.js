@@ -19,9 +19,10 @@ export default function NotebookListScreen() {
         { notebooks.map((notebook) => (
           <div key={notebook.uuid} className="row">
             <Link to={`/notebook/${notebook.uuid}`}>
-              <p>{notebook.name}</p>
+              <p className="name">{notebook.name}</p>
               <p className="created">{new Date(notebook.created).toDateString()}</p>
             </Link>
+            <div style={{clear: "both"}}></div>
           </div>
         ))}
       </div>

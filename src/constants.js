@@ -7,6 +7,7 @@ const colors = {
   burntSienna: "#EE6C4D",
   gunMetal: "#293241",
   background: "rgb(242, 242, 242)",
+  floralWhite: "#F9F6F1",
 };
 
 const defaultPadding = 20;
