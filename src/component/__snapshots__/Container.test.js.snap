@@ -6,11 +6,6 @@ exports[`Container component snapshot 1`] = `
 >
   <div
     className="header"
-    style={
-      Object {
-        "marginBottom": 20,
-      }
-    }
   >
     <div
       className="header-button"
@@ -56,6 +51,11 @@ exports[`Container component snapshot 1`] = `
   </div>
   <div
     className="container"
+    style={
+      Object {
+        "height": "inherit",
+      }
+    }
   >
     <div
       className="main"
@@ -90,11 +90,6 @@ exports[`Container with title component snapshot 1`] = `
 >
   <div
     className="header"
-    style={
-      Object {
-        "marginBottom": 20,
-      }
-    }
   >
     <div
       className="header-button"
@@ -142,6 +137,11 @@ exports[`Container with title component snapshot 1`] = `
   </div>
   <div
     className="container"
+    style={
+      Object {
+        "height": "inherit",
+      }
+    }
   >
     <div
       className="main"
@@ -176,11 +176,6 @@ exports[`Container without navigation component snapshot 1`] = `
 >
   <div
     className="header"
-    style={
-      Object {
-        "marginBottom": 20,
-      }
-    }
   >
     <div
       className="header-button"
@@ -229,6 +224,11 @@ exports[`Container without navigation component snapshot 1`] = `
   </div>
   <div
     className="container"
+    style={
+      Object {
+        "height": "inherit",
+      }
+    }
   >
     <div
       className="main"
