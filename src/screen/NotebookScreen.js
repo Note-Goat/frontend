@@ -1,20 +1,20 @@
 import {xhrDelete, xhrGet, xhrPost, xhrPut} from "../util/xhr";
 import {useContext, useEffect, useState} from "react";
 import DeleteIcon from '@material-ui/icons/Delete';
-import CreateIcon from '@material-ui/icons/Create';
 import NoteIcon from '@material-ui/icons/NoteAdd';
 import {Link, useHistory, useParams} from "react-router-dom";
 import {AppBar, Box, Tab, Tabs, Typography} from "@material-ui/core";
 import EditorState from "draft-js/lib/EditorState";
 import {convertToRaw} from "draft-js";
+import { DataGrid } from '@mui/x-data-grid';
 import Context from "../Context";
 import Container from "../component/Container";
 import {aesGcmDecrypt, aesGcmEncrypt} from "../util/crypto";
 import Button from "../component/Button";
-import {getNoteName} from "../util/notebook";
 import {useAuth} from "../hook/auth";
 import TextInput from "../component/TextInput";
 import SaveIcon from "@material-ui/icons/Save";
+import {getNoteName} from "../util/notebook";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -115,7 +115,7 @@ export default function NotebookScreen() {
     const data = await response.json();
     const updatedNotes = {...notes};
     data.message = await aesGcmDecrypt(message);
-    updatedNotes[notebook.uuid].unshift(data);
+    updatedNotes[notebook.uuid] = [data, ...updatedNotes[notebook.uuid]];
     setNotes(updatedNotes);
     history.push(`/notebook/${notebook.uuid}/note/${data.uuid}`);
   };
@@ -145,6 +145,8 @@ export default function NotebookScreen() {
     }
   };
 
+  console.log("notebook notes", notebookNotes);
+
   return (
     <Container title={`Notebook: ${notebook.name}`}>
       <div style={{flexDirection: "row", width: "100%"}}>
@@ -169,15 +171,28 @@ export default function NotebookScreen() {
             onClick={onClickNewNote}
             color="primary"
           />
-          {notebookNotes.map((note) => (
-            <div key={note.uuid} className="row">
-              <Link to={`/notebook/${notebookUuid}/note/${note.uuid}`}>
-                <p className="name">{note.decryptionError ? note.message : getNoteName(note.message)}</p>
-                <p className="created">{new Date(note.created).toDateString()}</p>
-              </Link>
-              <div style={{clear: "both"}}></div>
-            </div>
-          ))}
+          <DataGrid
+            rows={notebookNotes}
+            columns={[{
+              field: "name",
+              headerName: "Name",
+              width: 550,
+              valueGetter: (data) => data.row.decryptionError ? "(error decrypting message)" : getNoteName(data.row.message)
+            }, {
+              field: "created",
+              headerName: "Created",
+              width: 350,
+              valueGetter: (data) => new Date(data.row.created).toDateString(),
+              sortComparator: (v1, v2, param1, param2) =>
+                new Date(param1.api.getCellValue(param1.id, 'created')) -
+                new Date(param2.api.getCellValue(param2.id, 'created')),
+            }]}
+            getRowId={(row) => row.uuid}
+            onCellClick={(data) => {
+              history.push(`/notebook/${notebookUuid}/note/${data.row.uuid}`)
+            }}
+            style={{height: 540, cursor: "pointer"}}
+            />
         </TabPanel>
         <TabPanel value={tab} index={1}>
           <TextInput

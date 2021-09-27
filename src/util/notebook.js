@@ -4,6 +4,7 @@ export function getNoteName(json) {
     const firstLine = data.blocks[0].text;
     return firstLine === "" ? "(no name)" : firstLine;
   } catch (e) {
-    return null;
+    console.log(e);
+    return "error";
   }
 }
