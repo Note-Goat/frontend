@@ -145,8 +145,6 @@ export default function NotebookScreen() {
     }
   };
 
-  console.log("notebook notes", notebookNotes);
-
   return (
     <Container title={`Notebook: ${notebook.name}`}>
       <div style={{flexDirection: "row", width: "100%"}}>
@@ -165,12 +163,14 @@ export default function NotebookScreen() {
           </Tabs>
         </AppBar>
         <TabPanel value={tab} index={0} padding={0}>
-          <Button
-            icon={<NoteIcon />}
-            title="Start New Note"
-            onClick={onClickNewNote}
-            color="primary"
-          />
+          <div style={{paddingBottom: 20}}>
+            <Button
+              icon={<NoteIcon />}
+              title="Start New Note"
+              onClick={onClickNewNote}
+              color="primary"
+            />
+          </div>
           <DataGrid
             rows={notebookNotes}
             columns={[{
