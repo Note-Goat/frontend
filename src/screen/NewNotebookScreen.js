@@ -12,7 +12,8 @@ export default function NewNotebookScreen() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [nameIsEmptyError, setNameIsEmptyError] = useState(false);
-  const { notebooks, setNotebooks, accessToken } = useContext(Context);
+  const { notebooks, setNotebooks } = useContext(Context);
+  const {accessToken} = useAuth();
   const history = useHistory();
 
   useAuth();
